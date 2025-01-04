@@ -1,0 +1,5 @@
+select m.custno,m.custname from member_02 m, money_02 mm where m.custno=mm,custno;
+select distinct m.custname from member_02 m, money_02 mm where m.custno=mm.custno;
+select m.custno,m.custname,count(*) from member_02 m, money_02 mm where m.custno==mm.custno group by m.custno m.custname; 
+select m.custno,m.custname,count(*),sum(amount) from member_02 m, money_02 mm where m.custno=mm.custno group by m.custno, m.custname;
+select m.custno,m.custname,count(*),sum(amount),sum(price) from member_02 m, money_02 mm where m.custno=mm.custno group by m.custno, m.custname;
