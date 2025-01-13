@@ -45,3 +45,7 @@ select * from member_02 r, money_02 m where r.custno=m.custno;
 select * from member_02 r join money_02 m on r.custno=m.custno;
 3)
 select r.custno, r.custname,count(m.custno), sum(m.amount),sum(m.price) from member_02 r left join money_02 m on r.custno=m.custno group by r.custno, r.custname order by r.custno;
+
+
+//회원번호 자동증가
+select max(custno)+1 from member_02;
