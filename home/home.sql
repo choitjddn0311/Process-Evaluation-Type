@@ -49,3 +49,8 @@ select r.custno, r.custname,count(m.custno), sum(m.amount),sum(m.price) from mem
 
 //회원번호 자동증가
 select max(custno)+1 from member_02;
+
+//회원정보 수정
+ex) update table set 칼럼명=값,칼럼명=값,칼럼명=값 where 칼럼명='값'
+1)update member_02 set custname='"+custname+"',phone='"+phone+"',address='"+address+"',joindate='"+date+"',grade='"+grade+"',city='"+city+"' where custno='"+custno+"'
+
