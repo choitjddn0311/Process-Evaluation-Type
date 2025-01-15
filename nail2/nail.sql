@@ -89,3 +89,6 @@ and f.menucode1=m1.menucode
 and f.menucode2=m2.menucode 
 and f.menucode3=m3.menucode
 order by f.visitdate;
+
+//네일 실적 등록
+select  max(p_number)+1 from tbl_ferformance;
