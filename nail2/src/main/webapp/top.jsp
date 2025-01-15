@@ -14,7 +14,7 @@
 		<nav>
 			<ul>
 				<li><a href="menu.jsp">네일메뉴조회</a></li>
-				<li><a href="">네일실적등록</a></li>
+				<li><a href="list.jsp">네일실적등록</a></li>
 				<li><a href="result.jsp">네일실적조회</a></li>
 				<li><a href="report.jsp">네일아트통계</a></li>
 				<li><a href="index.jsp">홈으로</a></li>

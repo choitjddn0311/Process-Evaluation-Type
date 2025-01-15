@@ -10,9 +10,8 @@
 			Connection con = DriverManager.getConnection ("jdbc:oracle:thin:@//localhost:1521/xe","system","1234");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from tbl_customer c, tbl_ferformance f, tbl_menu m1, tbl_menu m2, tbl_menu m3 where c.customerid=f.customerid and f.menucode1=m1.menucode and f.menucode2=m2.menucode and f.menucode3=m3.menucode order by f.visitdate");
-			int i =1;
 			while(rs.next()) {
-				out.println("    <td>" + i + "</td>");
+				out.println("    <td>" + rs.getString(7) + "</td>");
 				out.println("    <td>" + rs.getString(1) + "</td>");
 				out.println("    <td>" + rs.getString(2) + "</td>");
 				out.println("    <td>" + rs.getString(5) + "</td>");
@@ -24,8 +23,7 @@
 				out.println("    <td>" + rs.getString(15) + "</td>");
 				out.println("    <td>" + rs.getString(19) + "</td>");
 				out.println("    <td>" + rs.getString(23) + "</td>");
-				out.println("    <td>" + rs.getString(13) + "</td></tr>");
-				i++;
+				out.println("    <td>20" + rs.getString(13).substring(0,2) +"/"+ rs.getString(13).substring(2,4) + "/"+ rs.getString(13).substring(4,6) + "</td></tr>");
 			}
 			stmt.close();
 			con.close();

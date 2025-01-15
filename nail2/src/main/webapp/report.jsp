@@ -11,7 +11,7 @@
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select f.visitdate,count(f.visitdate), sum(m.price) from tbl_ferformance f join tbl_menu m on f.menucode1=m.menucode and menucode1!='N00' group by f.visitdate order by f.visitdate");
 			while(rs.next()) {
-				out.println("<tr><td>" + rs.getString(1) + "</td>");
+				out.println("<tr><td>20" + rs.getString(1).substring(0,2) +"/"+ rs.getString(1).substring(2,4) + "/"+ rs.getString(1).substring(4,6) + "</td>");
 				out.println("    <td>" + rs.getString(2) + "</td>");
 				out.println("    <td>￦" + String.format("%,d",rs.getInt(3)) + "</td></tr>");
 			}
