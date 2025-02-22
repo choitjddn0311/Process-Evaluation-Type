@@ -13,7 +13,7 @@ insert into tbl_teacher_202201 values ('400','정심화','심화반','400000','2
 
 create table tbl_member_202201(
 c_no char(5) not null primary key,
-c_name varhcar2(15),
+c_name varchar2(15),
 phone varchar2(11),
 address varchar2(50),
 grade varchar2(6)
@@ -39,5 +39,18 @@ insert into tbl_class_202201 values ('202203','10002','성남본원','100000','1
 insert into tbl_class_202201 values ('202203','10003','대전본원','200000','200');
 insert into tbl_class_202201 values ('202203','20001','부산본원','150000','300');
 insert into tbl_class_202201 values ('202203','20002','대구본원','200000','400');
+-- 강사조회 - 강사코드, 강사명, 강의명, 수강료, 강사자격취득일
+select * from tbl_teacher_202201;
 
-//강사조회 - 강사코드, 강사명, 강의명, 수강료, 강사자격취득일
+-- 회원정보조회 - 수강월, 회원번호, 회원명, 강의명, 강의장소, 수강료, 들급
+select c.regist_month, c.c_no, m.c_name, t.class_name, c.class_area, c.tuition, m.grade
+from tbl_teacher_202201 t, tbl_member_202201 m, tbl_class_202201 c
+where m.c_no = c.c_no
+  and t.teacher_code = c.teacher_code;
+  
+-- 강사매출현황 - 강사코드, 강의명, 강사명, 총매출
+select t.teacher_code, t.class_name, t.teacher_name, count(c.teacher_code) * c.tuition
+from tbl_teacher_202201 t, tbl_class_202201 c
+where t.teacher_code = c.teacher_code
+group by t.teacher_code, t.class_name, t.teacher_name, c.tuition
+order by t.teacher_code;
